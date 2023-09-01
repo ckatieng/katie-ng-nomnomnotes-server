@@ -25,10 +25,10 @@ app.use(express.json());
 app.use(simulateLoggedInUser);
 
 // Routes
-// app.use("/users", usersRoutes);
+app.use("/users", usersRoutes);
 app.use("/must-try", mustTryRoutes);
-// app.use("/favourites", favouritesRoutes);
-// app.use("/visited", visitedRoutes);
+app.use("/favourites", favouritesRoutes);
+app.use("/visited", visitedRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

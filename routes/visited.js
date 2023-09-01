@@ -1,0 +1,7 @@
+const express = require("express");
+const router = express.Router();
+const visitedController = require("../controllers/visitedController");
+
+router.get("/", visitedController.getVisitedItems);
+
+module.exports = router;
