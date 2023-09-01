@@ -1,7 +1,7 @@
-const usersData = require('./seeds_data/users');
-const musttryItemsData = require('./seeds_data/musttry_items');
-const favouritesItemsData = require('./seeds_data/favourites_items');
-const visitedItemsData = require('./seeds_data/visited_items');
+const usersData = require('./seeds_data/users_seed');
+const musttryItemsData = require('./seeds_data/musttry_items_seed');
+const favouritesItemsData = require('./seeds_data/favourites_items_seed');
+const visitedItemsData = require('./seeds_data/visited_items_seed');
 
 exports.seed = async function(knex) {
     // Delete existing data to start fresh
