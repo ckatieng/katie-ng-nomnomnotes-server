@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+// Get all users
 const getUsers = (req, res) => {
     // const userId = req.user.id;
 

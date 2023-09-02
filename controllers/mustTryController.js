@@ -1,5 +1,16 @@
 const knex = require("knex")(require("../knexfile"));
 
+// Check if item already exists in a table
+async function checkIfItemExists(userId, googlePlacesId, tableName) {
+    // Query the specified table for an existing item
+    const existingItem = await knex(tableName)
+        .where({ user_id: userId, google_places_id: googlePlacesId })
+        .first();
+  
+    // Return true if an item exists, false otherwise
+    return !!existingItem;
+}
+
 // Get all must-try restaurants for a specific user
 const getMustTryItems = (req, res) => {
     const userId = req.user.id;
@@ -16,9 +27,21 @@ const getMustTryItems = (req, res) => {
 }
 
 // Add a must-try restaurant 
-const addMustTryItem = (req, res) => {
-    const { google_places_id } = req.body; // Assuming the frontend sends this data
+const addMustTryItem = async (req, res) => {
+    const { google_places_id } = req.body;
     const userId = req.user.id;
+
+    // Check if the item already exists in must-try
+    const isItemInMustTry = await checkIfItemExists(userId, google_places_id, 'musttry_items');
+    if (isItemInMustTry) {
+        return res.status(400).send("Item already exists in must-try.");
+    }
+
+    // Check if the item already exists in favourites
+    const isItemInFavourites = await checkIfItemExists(userId, google_places_id, 'favourites_items');
+    if (isItemInFavourites) {
+        return res.status(400).send("Item already exists in favourites.");
+    }
 
     // Insert a new record into the musttry_items table
     knex("musttry_items")
