@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+// Get all visited restaurants (history) for a specific user
 const getVisitedItems = (req, res) => {
     const userId = req.user.id;
 
@@ -14,6 +15,22 @@ const getVisitedItems = (req, res) => {
         );
 }
 
+// Delete a visited restaurant
+const deleteVisitedItem = (req, res) => {
+    const itemId = req.params.itemId;
+
+    knex("visited_items")
+        .where({ id: itemId })
+        .del()
+        .then(() => {
+            res.status(204).send();
+        })
+        .catch((err) => 
+            res.status(400).send(`Error deleting visited restaurant: ${err}`)
+        );
+}
+
 module.exports = {
-    getVisitedItems
+    getVisitedItems,
+    deleteVisitedItem,
 };
