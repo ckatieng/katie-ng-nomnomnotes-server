@@ -15,7 +15,6 @@ const getMustTryItems = (req, res) => {
         );
 }
 
-
 // Add a must-try restaurant 
 const addMustTryItem = (req, res) => {
     const { google_places_id } = req.body; // Assuming the frontend sends this data
@@ -36,7 +35,6 @@ const addMustTryItem = (req, res) => {
         );
 }
 
-
 // Delete a must-try restaurant
 const deleteMustTryItem = (req, res) => {
     const itemId = req.params.itemId; // Assuming you pass the item ID as a route parameter
@@ -51,7 +49,6 @@ const deleteMustTryItem = (req, res) => {
             res.status(400).send(`Error deleting must-try restaurant: ${err}`)
         );
 }
-
 
 // Move a restaurant from must-try to favourites
 const moveItemToFavourites = async (req, res) => {
@@ -95,7 +92,6 @@ const moveItemToFavourites = async (req, res) => {
         res.status(500).send("Error moving item to favourites.");
     }
 };
-
 
 // Move a restaurant from must-try to visited
 const moveItemToVisited = async (req, res) => {
