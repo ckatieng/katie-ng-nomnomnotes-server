@@ -16,4 +16,4 @@ const getVisitedItems = (req, res) => {
 
 module.exports = {
     getVisitedItems
-}
+};

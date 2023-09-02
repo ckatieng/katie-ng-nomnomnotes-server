@@ -16,4 +16,4 @@ const getFavouriteItems = (req, res) => {
 
 module.exports = {
     getFavouriteItems
-}
+};
