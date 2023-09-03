@@ -77,6 +77,7 @@ const deleteMustTryItem = (req, res) => {
 const moveItemToFavourites = async (req, res) => {
     const itemId = req.params.itemId;
     const userId = req.user.id;
+    const rating = req.body.rating;
     let trx;
 
     try {
@@ -96,6 +97,7 @@ const moveItemToFavourites = async (req, res) => {
         await trx("favourites_items").insert({
             user_id: userId,
             google_places_id: mustTryItem.google_places_id,
+            rating: rating,
         });
 
         // Delete the item from the must-try table
@@ -112,7 +114,7 @@ const moveItemToFavourites = async (req, res) => {
         if (trx) {
             await trx.rollback();
         }
-        res.status(500).send("Error moving item to favourites.");
+        res.status(500).send(`Error moving item to favourites: ${err}`);
     }
 };
 
@@ -120,6 +122,7 @@ const moveItemToFavourites = async (req, res) => {
 const moveItemToVisited = async (req, res) => {
     const itemId = req.params.itemId;
     const userId = req.user.id;
+    const rating = req.body.rating;
     let trx;
 
     try {
@@ -139,6 +142,7 @@ const moveItemToVisited = async (req, res) => {
         await trx("visited_items").insert({
             user_id: userId,
             google_places_id: mustTryItem.google_places_id,
+            rating: rating,
         });
 
         // Delete the item from the must-try table
@@ -155,7 +159,7 @@ const moveItemToVisited = async (req, res) => {
         if (trx) {
             await trx.rollback();
         }
-        res.status(500).send("Error moving item to visited.");
+        res.status(500).send(`Error moving item to visited: ${err}`);
     }
 };
 
