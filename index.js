@@ -9,6 +9,7 @@ const usersRoutes = require("./routes/users");
 const mustTryRoutes = require("./routes/musttry");
 const favouritesRoutes = require("./routes/favourites");
 const visitedRoutes = require("./routes/visited");
+const ratingsRoutes = require("./routes/ratings");
 
 // Load environment variables from the .env file
 require("dotenv").config();
@@ -29,6 +30,7 @@ app.use("/users", usersRoutes);
 app.use("/must-try", mustTryRoutes);
 app.use("/favourites", favouritesRoutes);
 app.use("/visited", visitedRoutes);
+app.use("/ratings", ratingsRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
