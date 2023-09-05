@@ -10,6 +10,7 @@ const mustTryRoutes = require("./routes/musttry");
 const favouritesRoutes = require("./routes/favourites");
 const visitedRoutes = require("./routes/visited");
 const ratingsRoutes = require("./routes/ratings");
+const googleApiRoutes = require("./routes/googleApi");
 
 // Load environment variables from the .env file
 require("dotenv").config();
@@ -26,11 +27,12 @@ app.use(express.json());
 app.use(simulateLoggedInUser);
 
 // Routes
-app.use("/users", usersRoutes);
-app.use("/must-try", mustTryRoutes);
-app.use("/favourites", favouritesRoutes);
-app.use("/visited", visitedRoutes);
-app.use("/ratings", ratingsRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/must-try", mustTryRoutes);
+app.use("/api/favourites", favouritesRoutes);
+app.use("/api/visited", visitedRoutes);
+app.use("/api/ratings", ratingsRoutes);
+app.use("/api/google-api-key", googleApiRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
