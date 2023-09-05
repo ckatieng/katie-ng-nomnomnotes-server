@@ -10,6 +10,7 @@ const mustTryRoutes = require("./routes/musttry");
 const favouritesRoutes = require("./routes/favourites");
 const visitedRoutes = require("./routes/visited");
 const ratingsRoutes = require("./routes/ratings");
+const restaurantRoutes = require("./routes/restaurant");
 const googleApiRoutes = require("./routes/googleApi");
 
 // Load environment variables from the .env file
@@ -32,6 +33,7 @@ app.use("/api/must-try", mustTryRoutes);
 app.use("/api/favourites", favouritesRoutes);
 app.use("/api/visited", visitedRoutes);
 app.use("/api/ratings", ratingsRoutes);
+app.use("/api/restaurant", restaurantRoutes);
 app.use("/api/google-api-key", googleApiRoutes);
 
 app.listen(PORT, () => {
