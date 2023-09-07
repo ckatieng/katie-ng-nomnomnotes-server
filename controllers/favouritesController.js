@@ -15,6 +15,7 @@ const getFavouriteItems = (req, res) => {
         );
 }
 
+
 // Delete a favourite restaurant
 const deleteFavouriteItem = (req, res) => {
     const itemId = req.params.itemId;

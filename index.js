@@ -34,7 +34,7 @@ app.use("/api/favourites", favouritesRoutes);
 app.use("/api/visited", visitedRoutes);
 app.use("/api/ratings", ratingsRoutes);
 app.use("/api/restaurant", restaurantRoutes);
-app.use("/api/google-api-key", googleApiRoutes);
+app.use("/api/google-api", googleApiRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
