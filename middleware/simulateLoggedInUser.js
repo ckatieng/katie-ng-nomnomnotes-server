@@ -1,4 +1,3 @@
-// simulateLoggedInUser.js
 const usersData = require("../seeds/seeds_data/users_seed");
 
 // Simulate a logged-in user

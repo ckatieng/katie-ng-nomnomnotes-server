@@ -19,10 +19,11 @@ const getLocationDetails = (req, res) => {
     axios.get(placesApiURL)
         .then((response) => {
             if (response.data.status === 'OK' && response.data.results.length > 0) {
-                const locationData = response.data.results[0].geometry.location;
+                const locationData = response.data.results[0];
                 const details = {
-                    latitude: locationData.lat,
-                    longitude: locationData.lng,
+                    formattedAddress: locationData.formatted_address,
+                    latitude: locationData.geometry.location.lat,
+                    longitude: locationData.geometry.location.lng,
                 };
                 // Send the location details back to the frontend
                 res.json(details);
@@ -35,7 +36,34 @@ const getLocationDetails = (req, res) => {
         });
 };
 
+// Set New Location
+const setLocation = (req, res) => {
+    const userId = req.user.id;
+    const { latitude, longitude, placeId, formattedAddress } = req.body;
+
+    // Create a location object with the new data
+    const newLocation = {
+        place_id: placeId,
+        formatted_address: formattedAddress,
+        latitude: latitude,
+        longitude: longitude
+    };
+
+    // Update the user's location in the database
+    knex('users')
+        .where({ id: userId })
+        // Store the location object as a JSON string
+        .update({ location: JSON.stringify(newLocation) }) 
+        .then(() => {
+            res.status(200).json({ message: 'Location updated successfully' });
+        })
+        .catch((error) => {
+            res.status(500).json({ error: 'Error updating location' });
+        });
+}
+
 module.exports = {
     getGoogleApiKey,
     getLocationDetails,
+    setLocation,
 };
