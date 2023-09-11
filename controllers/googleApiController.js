@@ -25,6 +25,16 @@ const getLocationDetails = (req, res) => {
                     latitude: locationData.geometry.location.lat,
                     longitude: locationData.geometry.location.lng,
                 };
+
+                // Extract country and province (state) long names from address_components
+                locationData.address_components.forEach((component) => {
+                    if (component.types.includes('country')) {
+                        details.country = component.short_name;
+                    } else if (component.types.includes('administrative_area_level_1')) {
+                        details.province = component.long_name;
+                    }
+                });
+
                 // Send the location details back to the frontend
                 res.json(details);
             } else {
@@ -39,15 +49,19 @@ const getLocationDetails = (req, res) => {
 // Set New Location
 const setLocation = (req, res) => {
     const userId = req.user.id;
-    const { latitude, longitude, placeId, formattedAddress } = req.body;
+    const { latitude, longitude, placeId, formattedAddress, province, country } = req.body;
 
     // Create a location object with the new data
     const newLocation = {
         place_id: placeId,
         formatted_address: formattedAddress,
         latitude: latitude,
-        longitude: longitude
+        longitude: longitude,
+        province: province,
+        country: country
     };
+
+    console.log(newLocation);
 
     // Update the user's location in the database
     knex('users')
