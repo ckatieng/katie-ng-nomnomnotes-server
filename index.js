@@ -22,9 +22,6 @@ const PORT = process.env.PORT || 5051;
 // Middleware
 app.use(cors({origin: process.env.CORS_ORIGIN}));
 app.use(express.json());
-// Serve static files from the 'public' directory
-// app.use(express.static("public"));
-
 app.use(simulateLoggedInUser);
 
 // Routes
