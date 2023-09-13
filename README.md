@@ -71,7 +71,7 @@ DB_LOCAL_USER=
 DB_LOCAL_PASSWORD=
 ```
 
-Generate your own Google Maps API key. Google offers a free credit of $300 for all new users of Google Cloud Platform and will not autocharge after the free trial ends. Once you have an API key, enter it into the .env file. The link below gives detailed instructions on how to do this.
+Generate your own Google Maps API key. Google offers a free credit of $300 for all new users of Google Cloud Platform and will not autocharge after the free trial ends. The link below gives detailed instructions on how to do this.
 
 [Getting Started with Google Maps Platform](https://developers.google.com/maps/get-started)
 
@@ -80,8 +80,9 @@ You will need to: <br>
 2. Create a billing account
 3. Setup a new project
 4. Attach the billing account to the project
-5. Then, generate an API key
+5. Generate an API key
 
+Once you have an API key, enter it into the .env file. 
 
 Run database migration:
 
