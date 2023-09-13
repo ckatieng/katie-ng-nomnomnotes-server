@@ -50,17 +50,42 @@ CREATE DATABASE nomnomnotes;
 Create an .env file within the main repository folder with the following:
 
 ```bash
+# CORS_ORIGIN: This is the allowed origin for Cross-Origin Resource Sharing.
+# It should match the URL where the client application is hosted during development.
 CORS_ORIGIN=http://localhost:3000
+
+# PORT: The port on which your server will listen.
 PORT=5050
+
+# GOOGLE_API_KEY: Your Google Maps API key.
+# This is required for using Google Maps services in the application.
 GOOGLE_API_KEY=
+
+# DB_LOCAL_DBNAME: The name of the MySQL database.
 DB_LOCAL_DBNAME=nomnomnotes
+
+# DB_LOCAL_USER: The username for accessing the MySQL database.
 DB_LOCAL_USER=
+
+# DB_LOCAL_PASSWORD: The password for the MySQL user.
 DB_LOCAL_PASSWORD=
 ```
 
 Generate your own Google Maps API key. The link below gives detailed instructions on how to do this. You will need to sign up for an account on Google Cloud Platform, create a billing account, setup a new project, attach the billing account to the project, and then generate an API key. Google offers a free credit of $300 for all new users of Google Cloud Platform and will not autocharge after the free trial ends. Once you have an API key, enter it into the .env file.
 
 [Getting Started with Google Maps Platform](https://developers.google.com/maps/get-started)
+
+Run database migration:
+
+```bash
+npm run migrate
+```
+
+Seed database:
+
+```bash
+npm run seed
+```
 
 Start the server:
 
@@ -94,6 +119,5 @@ Thank you for taking the time to checkout NomNom Notes! Feel free to reach out i
 ---
 
 
-LinkedIn [@katiecng](https://www.linkedin.com/in/katiecng/)
-
-GitHub [@ckatieng](https://github.com/ckatieng)
+- LinkedIn [@katiecng](https://www.linkedin.com/in/katiecng/)
+- GitHub [@ckatieng](https://github.com/ckatieng)
