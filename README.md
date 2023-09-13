@@ -119,5 +119,5 @@ Thank you for taking the time to checkout NomNom Notes! Feel free to reach out i
 ---
 
 
-- LinkedIn [@katiecng](https://www.linkedin.com/in/katiecng/)
-- GitHub [@ckatieng](https://github.com/ckatieng)
+LinkedIn [@katiecng](https://www.linkedin.com/in/katiecng/) <br>
+GitHub [@ckatieng](https://github.com/ckatieng)
