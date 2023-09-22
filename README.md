@@ -121,6 +121,8 @@ Note: To use NomNom Notes, it's essential to run both the server and client side
 
 ## Roadmap
 
+- **Auto-Order by City:** Add an auto-ordering feature that will intelligently group restaurants based on their respective cities (such as Coquitlam, Burnaby, Vancouver, Richmond), ensuring a more organized list where you can seamlessly explore based on your location. No manual sorting required! 
+
 - **Shareable Lists:** Implement the ability for users to share restaurant lists with friends via a unique URL, enabling real-time updates and the option for friends to add the restaurants to their own lists
 
 - **User Authentication:** Integrate Passport.js to provide user authentication features like login and signup
