@@ -1,39 +1,5 @@
 const knex = require("knex")(require("../knexfile"));
 
-// Get all users
-const getUsers = (req, res) => {
-    knex("users")
-        .then((data) => {
-            res.status(200).json(data);
-        })
-        .catch((err) => {
-            console.error("Error retrieving users:", err);
-            res.status(500).json({ error: "Internal server error" });
-        });
-}
-
-// Get user's location
-const getUserLocation = (req, res) => {
-    const userId = req.user.id;
-    
-    // Query the database to get the user's location
-    knex("users")
-        .select("location") // Select only the 'location' field
-        .where("id", userId)
-        .then((user) => {
-            if (user.length > 0) {
-                const location = user[0].location;
-                res.json(location);
-            } else {
-                res.status(404).json({ error: "User location not found" });
-            }
-        })
-        .catch((err) => {
-            console.error("Error retrieving user location:", err);
-            res.status(500).json({ error: "Internal server error" });
-        });
-}
-
 // Create new account
 const createUser = (req, res) => {
     // Receive user input from request body
@@ -92,8 +58,56 @@ function isEmailValid(email) {
     return emailPattern.test(email);
 }
 
+// Get user's location
+const getUserLocation = (req, res) => {
+    const userId = req.user.id;
+    
+    // Query the database to get the user's location
+    knex("users")
+        .select("location") // Select only the 'location' field
+        .where("id", userId)
+        .then((user) => {
+            if (user.length > 0) {
+                const location = user[0].location;
+                res.json(location);
+            } else {
+                res.status(404).json({ error: "User location not found" });
+            }
+        })
+        .catch((err) => {
+            console.error("Error retrieving user location:", err);
+            res.status(500).json({ error: "Internal server error" });
+        });
+}
+
+// Get logged in user's info
+const getUserInfo = (req, res) => {
+    const userId = req.user.id;
+
+    // Check if the user is authenticated
+    if (!userId) {
+        return res.status(401).json({ error: 'User not authenticated' });
+    }
+
+    // Query the database to get the user's data by ID
+    knex("users")
+        .select("id", "email", "location") // specify the fields you want to retrieve
+        .where({ id: userId })
+        .then((user) => {
+            if (user.length > 0) {
+                res.status(200).json(user[0]);
+            } else {
+                res.status(404).json({ error: "User not found" });
+            }
+        })
+        .catch((err) => {
+            console.error("Error retrieving user data:", err);
+            res.status(500).json({ error: "Internal server error" });
+        });
+}
+
 module.exports = {
-    getUsers,
-    getUserLocation,
     createUser,
+    getUserLocation,
+    getUserInfo,
 };

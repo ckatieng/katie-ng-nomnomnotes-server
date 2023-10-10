@@ -7,6 +7,9 @@ const simulateLoggedInUser = (req, res, next) => {
   // Attach the simulated user to the request object
   req.user = loggedInUser;
 
+  // Extract the email from the user object and attach it to req.user
+  req.user.email = loggedInUser.email;
+
   // Continue to the next middleware or route handler
   next();
 };
