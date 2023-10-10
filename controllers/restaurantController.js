@@ -30,6 +30,12 @@ const getRestaurantDetails= (req, res) => {
         .then((response) => {
             const restaurantData = response.data.result;
 
+            // Split the formatted address into components
+            const addressComponents = restaurantData.formatted_address.split(', ');
+
+            // Get the city (assuming it's the second-to-last component)
+            const city = addressComponents[addressComponents.length - 3]; 
+
             // Transform and enrich the photos data with photo URLs
             const photos = restaurantData.photos.map((photo) => {
                 return {
@@ -49,6 +55,7 @@ const getRestaurantDetails= (req, res) => {
                 website: restaurantData.website,
                 photos: photos,
                 reviews: restaurantData.reviews,
+                city: city
             };
             
             // Send the restaurant details back to the frontend
