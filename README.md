@@ -13,7 +13,9 @@ Note: To use NomNom Notes, you'll need to set up and connect it to the [client r
 
 Did you just hear about an amazing restaurant from a friend? Or did you discover a new restaurant on social media? On NomNom Notes, you can explore the most updated database of restaurants and easily add them to your personal "Must-Try" checklist. If you're unsure, view more details about the restaurant and decide for yourself whether it should make your list. Haven't heard of any restaurants recently? Take a look at the "Top 10" list that are rated right within the app for new discoveries. 
 
-**Auto-Order by City:** The lists will automatically order restaurants based on their respective cities (such as Coquitlam, Burnaby, Vancouver, Richmond), ensuring a more organized list where you can seamlessly explore based on your location. No manual sorting required! 
+**Auto-Order by City:** 
+
+The lists will automatically order restaurants based on their respective cities (such as Coquitlam, Burnaby, Vancouver, Richmond), ensuring a more organized list where you can seamlessly explore based on your location. No manual sorting required! 
 
 **Add to Favourites & Share:** 
 
