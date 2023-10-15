@@ -13,9 +13,11 @@ Note: To use NomNom Notes, you'll need to set up and connect it to the [client r
 
 Did you just hear about an amazing restaurant from a friend? Or did you discover a new restaurant on social media? On NomNom Notes, you can explore the most updated database of restaurants and easily add them to your personal "Must-Try" checklist. If you're unsure, view more details about the restaurant and decide for yourself whether it should make your list. Haven't heard of any restaurants recently? Take a look at the "Top 10" list that are rated right within the app for new discoveries. 
 
-**Organize & Track:** 
+**Auto-Order by City:** The lists will automatically order restaurants based on their respective cities (such as Coquitlam, Burnaby, Vancouver, Richmond), ensuring a more organized list where you can seamlessly explore based on your location. No manual sorting required! 
 
-Keep all your restaurant options in one place and never forget a great dining spot again. The favourite list ensures you have access to the ones you will want to visit again or may be worthy enough to share with others.
+**Add to Favourites & Share:** 
+
+Create a curated list of your favourite dining spots and share it with others via a unique URL, enabling real-time updates and the option for friends to add the restaurants to their own lists.
 
 **Review & Rate:** 
 
@@ -120,10 +122,6 @@ Note: To use NomNom Notes, it's essential to run both the server and client side
 
 
 ## Roadmap
-
-- **Auto-Order by City:** Add an auto-ordering feature that will intelligently group restaurants based on their respective cities (such as Coquitlam, Burnaby, Vancouver, Richmond), ensuring a more organized list where you can seamlessly explore based on your location. No manual sorting required! 
-
-- **Shareable Lists:** Implement the ability for users to share restaurant lists with friends via a unique URL, enabling real-time updates and the option for friends to add the restaurants to their own lists
 
 - **User Authentication:** Integrate Passport.js to provide user authentication features like login and signup
 
